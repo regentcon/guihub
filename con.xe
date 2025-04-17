@@ -45,6 +45,20 @@ end,
 })
 
 local Button = Tab:CreateButton({
+   Name = "머더 칼 얻",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MM2Nebula/MM2/refs/heads/main/script"))()
+end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "투명인간",
+   Callback = function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Awesome-Invisible-man-21074"))()
+end,
+})
+
+local Button = Tab:CreateButton({
    Name = "파트 움직이기",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/regentcon/tlqkf/refs/heads/main/urmom"))()
