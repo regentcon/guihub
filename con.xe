@@ -236,7 +236,9 @@ end
 createControlButton()
 end,
 })
-
+local Button = Tab:CreateButton({
+   Name = "파트업애기",
+   Callback = function()
 local p = game.Players.LocalPlayer
 local Tool = Instance.new("Tool")
 Tool.Name = "Fire Parts"
