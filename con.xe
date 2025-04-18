@@ -226,9 +226,9 @@ local function createControlButton()
     button.MouseButton1Click:Connect(function()
         toggleBlackHole()
         if blackHoleActive then
-            button.Text = "켜기"
+            button.Text = "꺼기"
         else
-            button.Text = "끄기"
+            button.Text = "켜기"
         end
     end)
 end
