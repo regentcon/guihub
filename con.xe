@@ -101,8 +101,9 @@ local UserInputService = game:GetService("UserInputService")
 local Player = Players.LocalPlayer
 local Connection = nil
 local Parried = false
-local ParryActive = false -- E 키로 활성화 제어
+local ParryActive = false -- E 토글 상태
 
+-- 공 찾기
 local function GetBall()
     for _, Ball in ipairs(workspace.Balls:GetChildren()) do
         if Ball:GetAttribute("realBall") then
@@ -111,6 +112,7 @@ local function GetBall()
     end
 end
 
+-- 연결 초기화
 local function ResetConnection()
     if Connection then
         Connection:Disconnect()
@@ -118,6 +120,7 @@ local function ResetConnection()
     end
 end
 
+-- 공 생기면 리셋
 workspace.Balls.ChildAdded:Connect(function()
     local Ball = GetBall()
     if not Ball then return end
@@ -127,13 +130,16 @@ workspace.Balls.ChildAdded:Connect(function()
     end)
 end)
 
+-- E 누르면 On/Off 토글
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if not gameProcessed and input.KeyCode == Enum.KeyCode.E then
         ParryActive = not ParryActive
-        print("자동 패링: " .. (ParryActive and "활성화됨" or "비활성화됨"))
+        Parried = false -- 껐다 켜도 다시 패링되도록 초기화
+        print("자동 패링 상태: " .. (ParryActive and "ON" or "OFF"))
     end
 end)
 
+-- 토글 패링 실행
 RunService.PreSimulation:Connect(function()
     if not ParryActive then return end
 
@@ -144,12 +150,13 @@ RunService.PreSimulation:Connect(function()
     local Speed = Ball.zoomies.VectorVelocity.Magnitude
     local Distance = (HRP.Position - Ball.Position).Magnitude
 
-    if Ball:GetAttribute("target") == Player.Name and Distance / Speed <= 50 and not Parried then
+    if Ball:GetAttribute("target") == Player.Name and Distance / Speed <= 0.55 and not Parried then
         VirtualInputManager:SendMouseButtonEvent(0, 0, 0, true, game, 0)
         VirtualInputManager:SendMouseButtonEvent(0, 0, 0, false, game, 0)
         Parried = true
     end
 end)
+
 
 end,
 })
