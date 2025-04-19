@@ -37,9 +37,6 @@ local Window = Rayfield:CreateWindow({
 local Tab = Window:CreateTab("메인😊", nil) -- Title, Image
 local Section = Tab:CreateSection("메인")
 
-end,
-})
-
 local Button = Tab:CreateButton({
    Name = "복싱베타",
    Callback = function()
