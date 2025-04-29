@@ -39,9 +39,9 @@ local Section = Tab:CreateSection("메인")
 
 
 local Button = Tab:CreateButton({
-   Name = "투명인간",
+   Name = "투명인간(더 좋아짐 ㅇㅇ)",
    Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Awesome-Invisible-man-21074"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/regentcon/sex/refs/heads/main/sex"))()
 end,
 })
 
