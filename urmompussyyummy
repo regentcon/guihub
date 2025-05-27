@@ -34,6 +34,23 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
+local Tab = Window:CreateTab("이름 없는 복싱게임", nil) -- Title, Image
+local Section = Tab:CreateSection("메인")
+
+local Button = Tab:CreateButton({
+   Name = "느그애미씨빨",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/regentcon/wadawd/refs/heads/main/awdadw", true))()
+end,
+})
+local Button = Tab:CreateButton({
+   Name = "투명인간(더 좋아짐 ㅇㅇ)",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/regentcon/sex/refs/heads/main/sex"))()
+end,
+})
+
+
 local Tab = Window:CreateTab("다른 허브☠️", nil) -- Title, Image
 local Section = Tab:CreateSection("메인")
 
